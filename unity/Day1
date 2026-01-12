@@ -1,0 +1,48 @@
+代码结构梳理
+1、包含的行为：
+  跳跃（Jump）
+  移动（Move）
+  冲刺（Dash）
+  是否在地面上（Grounded）
+2、分布理解
+a.包含的变量
+  Speed
+  JumpSpeed
+  DashSpeed
+  MoveInput：存储玩家的输入值，用来控制角色左右移动。
+  rb，Rigidbody2D，用于控制物理碰撞
+  isgrounded：角色是否站在地面上
+  groundCheck：用于检测地面上的位置
+  groundMask：过滤哪些是地面，通过LayerMask
+
+初始化过程
+private 和 public
+
+public：类的外部代码访问或修改
+private：只有当前累的内部访问和修改
+
+
+public float speed = 4f;
+public float dashspeed =10f;
+public float jumpspeed =7f;
+
+//Transform是一个表示物体位置、旋转和缩放的组件类型。
+//New——LayerMask是一个用于表示物体所在层级的类型。“层过滤”来选择哪些物体能被检测或交互。
+public Transform groundCheck；
+public LayerMask groundMask；
+
+private  float moveInput；
+//玩家输入值，旨在update计算，不需要其他类直接访问。
+private Rigidbody2D rb;
+//物理引擎组件，控制角色的物理行为。不想要其他类直接访问和改变，只想要playercontroller控制。
+private bool isGrounded;
+//只是在update中判断是否在地上
+
+
+b.Start方法：Unity 中每个脚本的初始化方法，它在游戏开始时只会调用一次
+rb= GetComponent<Rigidbody2D>();
+//获取附加在某个游戏对象上的组件,通过它访问并操作该组件的属性和方法
+用来获取当前游戏对象上的 Rigidbody2D 组件。
+Rigidbody2D 组件是 Unity 中用于处理物理运动的组件，它能够使物体受到重力、碰撞等物理效果的影响。
+
+c.Update方法：Unity 中每一帧都会被调用的方法，也就是说，它会在游戏运行时 每一帧都执行。
