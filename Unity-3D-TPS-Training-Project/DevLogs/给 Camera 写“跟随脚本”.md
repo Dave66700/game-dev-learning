@@ -12,7 +12,19 @@ public float smoothSpeed =5f;
 ```
 void LateUpdate()
 {
-  
+  Vector3 desiredPosition = target.position 
+                          - target.forward * distance 
+                          + Vector3.up * height;
+Vector3 smoothedPosition = Vector3.Lerp(
+    transform.position,
+    desiredPosition,
+    smoothSpeed * Time.deltaTime);
+
+transform.position = smoothedPosition;
+
+transform.LookAt(target);
+}
+
 }
 
 
