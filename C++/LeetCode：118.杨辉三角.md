@@ -4,6 +4,8 @@
 
 1.杨辉三角的性质
 
+<img width="357" height="283" alt="image" src="https://github.com/user-attachments/assets/d903fb2c-6a6a-4b6c-9e58-e6f35da3d99c" />
+
 性质：
 - 每一行的第一个数字和最后一个数字是1
 - 中间的数字 = 上一行的左上方数字 + 上一行的右上方数字
