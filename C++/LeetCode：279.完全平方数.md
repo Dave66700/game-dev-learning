@@ -74,11 +74,11 @@ public:
     int numSquares(int n) {
         vector<int> dp(n+1,INT_MAX)
 //我们需要存储 dp[0] 到 dp[n]，总共 n+1 个状态。
-        int dp[0] = 0;
+        int dp[0] = 0;----------->不用再定义了，已经是int dp[o] = o
 
-      for(int i =1;i<n;i++)
+      for(int i =1;i<=n;i++)--------- 遍历所有"背包容量"
 {
-    for(int j = 1;j * j<i;j++)
+    for(int j = 1;j * j<i;j++)---------->小于等于啊，dp[9]边界不要忘记
     {dp[i] = min(dp[i],dp[i-j*j]+1);}
 
 }
