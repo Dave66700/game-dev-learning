@@ -68,3 +68,21 @@ dp[i]初始化，为最大数，以便于后面min函数来筛选
 
 ## 函数部分
 
+```
+class Solution {
+public:
+    int numSquares(int n) {
+        vector<int> dp(n+1,INT_MAX)
+//我们需要存储 dp[0] 到 dp[n]，总共 n+1 个状态。
+        int dp[0] = 0;
+
+      for(int i =1;i<n;i++)
+{
+    for(int j = 1;j * j<i;j++)
+    {dp[i] = min(dp[i],dp[i-j*j]+1);}
+
+}
+return dp[n];
+    }
+};
+```
