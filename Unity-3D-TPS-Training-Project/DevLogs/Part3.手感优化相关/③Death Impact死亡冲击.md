@@ -108,3 +108,19 @@ IEnumerator DeathSequence()
     - AddTorque 的作用： (x, y, z) = 绕X轴旋转x，绕Y轴旋转y，绕Z轴旋转z
 - 第四步 等几秒之后在删除
   - yield return new WaitForSeconds(3f);
+
+
+拓展一个内容
+
+Random.insideUnitSphere
+
+ 返回单位球体内的一个随机点
+ 
+ 范围：x,y,z都在-1到1之间，长度<=1
+
+示例可能值：
+ (0.3, -0.7, 0.1)  长度≈0.77
+ 
+(-0.5, 0.2, -0.8) 长度≈0.96
+
+（0.1, 0.0, 0.4)   长度≈0.41
