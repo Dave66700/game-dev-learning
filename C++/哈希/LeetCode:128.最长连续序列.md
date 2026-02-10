@@ -75,8 +75,71 @@ public:
     if(nums.empty())
     return 0;
     
-    unordered_set
+    unordered_set<int> numSet(nums.begin(),nums.end());
+
+    int longestStreak = 0;
+     for(int num: numSet)
+{
+    if(numSet.find(num - 1)!= numSet.edn())
+    continue;
+
+
+    int currentNum = num;
+    int currentStreak =1;
+
+    whihe(numSet.find(currentNum+1)!=numSet.end())
+      {
+          curentStreak++;
+          currentNum++;
+      }  
+}
+longestStreak = max(currentStreak;longestStreak);
         
+    }
+return longestStreak;
+};
+```
+## 代码解析
+
+```
+#include <vector>
+#include <unordered_set>
+using namespace std;
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        // 边界情况：空数组
+        if (nums.empty()) return 0;
+        
+        // 步骤1：构建哈希集合，去重
+        unordered_set<int> numSet(nums.begin(), nums.end());
+        
+        int longestStreak = 0;  // 记录最长连续序列长度
+        
+        // 步骤2：遍历集合中的每个数字
+        for (int num : numSet) {
+            // 步骤3：检查当前数字是否是序列起点
+            // 如果 num-1 存在，则 num 不是起点，跳过
+            if (numSet.find(num - 1) != numSet.end()) {
+                continue;
+            }
+            
+            // 步骤4：num 是序列起点，开始扩展
+            int currentNum = num;
+            int currentStreak = 1;  // 当前序列长度，至少包含num本身
+            
+            // 不断检查 currentNum + 1 是否存在
+            while (numSet.find(currentNum + 1) != numSet.end()) {
+                currentNum++;      // 移动到下一个数字
+                currentStreak++;   // 序列长度加1
+            }
+            
+            // 步骤5：更新最长序列长度
+            longestStreak = max(longestStreak, currentStreak);
+        }
+        
+        return longestStreak;
     }
 };
 
