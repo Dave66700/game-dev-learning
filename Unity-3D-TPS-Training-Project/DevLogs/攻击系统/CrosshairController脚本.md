@@ -1,5 +1,14 @@
 ## 第一步：准备准心UI
 
+Hierarchy 右键 → UI → Image
+
+重命名：Crosshair
+
+锚点设为 居中
+
+Width / Height 设为 20 × 20
+
+颜色先白色
 
 ## 第二步：明确功能
 
